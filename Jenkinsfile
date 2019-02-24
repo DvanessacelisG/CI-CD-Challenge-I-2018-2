@@ -3,7 +3,7 @@ pipeline {
 		stages {                 
 			stage('Prepare') {                         
 				steps {  
-					                              
+					sh 'npm start'                            
 					echo 'Preparing..'
 				}                 
 			}                 
@@ -15,7 +15,8 @@ pipeline {
 				}                 
 			}                 
 			stage('Test') {                         
-				steps {                                 
+				steps {
+					sh 'docker run challengeimage npm test'
 					echo 'Testing...'                        
 				}                 
 			}
