@@ -34,7 +34,9 @@ pipeline {
 			}                 
 			stage('Deploy') {                         
 				steps { 
-					input message: 'Deploy? (Click "Proceed" to continue)' 
+					
+					input message: 'Deploy? (Click "Proceed" to continue)'
+					sh 'docker stop $(docker ps -a -q)'
 					sh 'docker run -d -p 8000:8000 challengeimage'
 					echo 'Deploying....'                                     					
 				}                 
