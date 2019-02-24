@@ -39,7 +39,7 @@ pipeline {
 					input message: 'Deploy? (Click "Proceed" to continue)'
 					sh 'docker stop $(docker ps -a -q)'
 					sh 'docker run -d -p 8000:8000 challengeimage'
-					sh 'docker rm $(docker ps -a -q)'
+				
 					sh 'docker rmi $(docker images -f dangling=true -q)'
 					echo 'Deploying....'                                     					
 				}                 
