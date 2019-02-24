@@ -9,6 +9,8 @@ pipeline {
 			}                 
 			stage('Build') {                         
 				steps {                                 
+					
+					sh 'docker build . --tag=challengeimage
 					echo 'Building..'                         
 				}                 
 			}                 
