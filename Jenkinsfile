@@ -33,7 +33,8 @@ pipeline {
 				}
 			}                 
 			stage('Deploy') {                         
-				steps {                                 
+				steps { 
+					input message: 'Deploy? (Click "Proceed" to continue)' 
 					echo 'Deploying....'                                     					
 				}                 
 			}         
