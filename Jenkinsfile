@@ -2,7 +2,8 @@ pipeline {
 	agent any         
 		stages {                 
 			stage('Prepare') {                         
-				steps {                                 
+				steps {  
+					git url: https://github.com/DvanessacelisG/CI-CD-Challenge-I-2018-2.git                               
 					echo 'Preparing..'
 				}                 
 			}                 
