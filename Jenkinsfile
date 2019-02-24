@@ -25,7 +25,10 @@ pipeline {
 				}                 
 			}
 			stage('push') {
-				steps {
+				steps {	
+					sh 'docker login -u $DHubUser -p $DHubPass'
+                    			sh 'docker tag challengeimage:latest vanessacelis/challengedh:latest'
+                    			sh 'docker push vanessacelis/challengeimage:latest'
 					echo 'pushing'
 				}
 			}                 
