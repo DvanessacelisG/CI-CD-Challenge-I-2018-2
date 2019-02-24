@@ -1,9 +1,13 @@
 pipeline {
-	agent any         
+	agent any     
+	    	environment {
+            		DockerUser = credentials('DHubUser')
+            		DockerPass = credentials('DHubPass')
+       			 }
 		stages {                 
 			stage('Prepare') {                         
 				steps {  
-					sh 'npm start'                            
+					                            
 					echo 'Preparing..'
 				}                 
 			}                 
