@@ -28,7 +28,7 @@ pipeline {
 				steps {	
 					sh 'docker login -u $DockerUser -p $DockerPass'
                     			sh 'docker tag challengeimage:latest vanessacelis/challengedh:latest'
-                    			sh 'docker push vanessacelis/challengeimage:latest'
+                    			sh 'docker push vanessacelis/challengedh:latest'
 					echo 'pushing'
 				}
 			}                 
