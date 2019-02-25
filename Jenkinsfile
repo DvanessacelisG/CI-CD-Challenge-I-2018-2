@@ -1,8 +1,9 @@
 pipeline {
 	agent any     
 	    	environment {
-            		DockerUser = credentials('DHubUser')
-            		DockerPass = credentials('DHubPass')
+            		DockerUser = credentials('DockerUser')
+            		DockerPass = credentials('DockerPass')
+			version = "${env.BUILD_ID}"
        			 }
 		stages {                 
 			stage('Prepare') {                         
@@ -14,7 +15,7 @@ pipeline {
 			stage('Build') {                         
 				steps {                                 
 					
-					sh 'docker build . --tag=challengeimage'
+					sh 'docker build . --tag=challengeimage:\${version}'
 					echo 'Building..'                         
 				}                 
 			}                 
@@ -40,7 +41,7 @@ pipeline {
 					sh 'docker stop $(docker ps -a -q)'
 					sh 'docker run -d -p 8000:8000 challengeimage'
 					sh 'docker container prune --force'
-					sh 'docker rmi $(docker images -f dangling=true -q)'
+					//sh 'docker rmi $(docker images -f dangling=true -q)'
 					echo 'Deploying....'                                     					
 				}                 
 			}         
