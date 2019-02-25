@@ -3,6 +3,7 @@ pipeline {
 	    	environment {
             		DockerUser = credentials('DockerUser')
             		DockerPass = credentials('DockerPass')
+			version = ${env.BUILD_ID}
        			 }
 		stages {                 
 			stage('Prepare') {                         
@@ -14,7 +15,7 @@ pipeline {
 			stage('Build') {                         
 				steps {                                 
 					
-					sh 'docker build . --tag=challengeimage:env.BUILD_ID'
+					sh 'docker build . --tag=challengeimage:${version}'
 					echo 'Building..'                         
 				}                 
 			}                 
