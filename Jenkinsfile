@@ -14,7 +14,7 @@ pipeline {
 			stage('Build') {                         
 				steps {                                 
 					
-					sh 'docker build . --tag=challengeimage'
+					sh 'docker build . --tag=challengeimage:${env.BUILD_ID}'
 					echo 'Building..'                         
 				}                 
 			}                 
@@ -40,7 +40,7 @@ pipeline {
 					sh 'docker stop $(docker ps -a -q)'
 					sh 'docker run -d -p 8000:8000 challengeimage'
 					sh 'docker container prune --force'
-					sh 'docker rmi $(docker images -f dangling=true -q)'
+					//sh 'docker rmi $(docker images -f dangling=true -q)'
 					echo 'Deploying....'                                     					
 				}                 
 			}         
