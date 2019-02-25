@@ -14,7 +14,7 @@ pipeline {
 			stage('Build') {                         
 				steps {                                 
 					
-					sh 'docker build . --tag=challengeimage:${env.BUILD_ID}'
+					sh 'docker build . --tag=challengeimage:env.BUILD_ID'
 					echo 'Building..'                         
 				}                 
 			}                 
