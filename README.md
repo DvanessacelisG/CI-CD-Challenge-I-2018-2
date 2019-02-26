@@ -89,7 +89,7 @@ npm start
 - You can run the tests in the same way
 ```
 npm test
-```
+;;;;;;;;;;;;;;;;;;;;;;;;;;```
 
 # Step 3
 With your environment ready, you can now proceed to create the CI Pipeline. Use Jenkinsfile based solutions versioning it. Your solution should look like this:
